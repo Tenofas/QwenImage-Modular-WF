@@ -13,3 +13,11 @@ The alternative is to apply some sort of "hi-res fix," a second pass with a diff
 So, what should I use? What kind of workflow should I develop?Use Flux or SDXL as a second pass?
 
 Why not give the user the choice?Add a loader for both models and let the user choose what kind of 2nd pass to apply.
+
+This workflow will generate a high-res Qwen image, and then the image will go through a 2nd pass with the model (with LoRAs if you want to use them) of your choice.
+
+The image then can be sent to each one of the modules:1) Face detailer (to improve the details of faces in the image), 2) Ultimate SD Upscaler, and 3) Save the final image.
+
+Warning: this workflow was developed for photorealistic images. If you just want to generate illustrations, cartoons, anime, or images like these, you don't need a second pass, as the Qwen model is already perfect by itself for these kinds of images.
+
+This workflow was tested on Runpod with a rtx 5090 gpu, and using the standard models (Qwen bf16 and Flux Krea fp16) I had no trouble or OOM errors. If your GPU has less than 32GB it is probable that you need to use the fp8 models or the quantized GGUF models.
