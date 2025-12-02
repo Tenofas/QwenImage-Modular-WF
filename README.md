@@ -21,3 +21,5 @@ The image then can be sent to each one of the modules:1) Face detailer (to impro
 Warning: this workflow was developed for photorealistic images. If you just want to generate illustrations, cartoons, anime, or images like these, you don't need a second pass, as the Qwen model is already perfect by itself for these kinds of images.
 
 This workflow was tested on Runpod with a rtx 5090 gpu, and using the standard models (Qwen bf16 and Flux Krea fp16) I had no trouble or OOM errors. If your GPU has less than 32GB it is probable that you need to use the fp8 models or the quantized GGUF models.
+
+As another alternative, you can download the "Qwen Image WAN2.2 Modular WF v1.0.json" workflow file, if you want to use Wan2.2 model for second pass in place of Flux/SDXL/Illustrious.
