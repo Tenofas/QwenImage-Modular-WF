@@ -1,25 +1,148 @@
-The Qwen Image model was released a few days ago, and it's getting a lot of success.
+# Qwen Image Modular WF - ComfyUI Workflow
 
-It's great, probably the best, in prompt adherence, but if you want to generate some photo-realistic images, Qwen is not the best model around.
+![Preview](assets/preview.png)
 
-Qwen images are incredible, full of details, and extremely close to what you wrote in the prompt, but if I want to get a photo, the quality is really bad.Skin is flat; the look is cartoonish.So what could we do to fix this?LoRAs are coming... but it's the model that was not trained (probably) on real people's images, and a few LoRAs will not help too much.
+## 📖 Description
 
-The alternative is to apply some sort of "hi-res fix," a second pass with a different model.And here we have two strong choices, depending on what we want to achieve.
+[Breve descrizione del workflow - 2-3 frasi che spiegano cosa fa e perché è utile]
 
-1) Flux Krea, the new model by BFL, which is, in my opinion, the best photorealistic model available today;
+Example:
+"Multi-stage photorealistic generation workflow optimized for FLUX models. Features automatic upscaling, face enhancement, and post-processing effects for production-ready outputs."
 
-2) The good old SD1.5, SDXL, or Illustrious if you want to choose among thousands of LoRA and you want to generate NSFW images (some Illustrious realistic checkpoints are really good).
+## ✨ Features
 
-So, what should I use? What kind of workflow should I develop?Use Flux or SDXL as a second pass?
+- [Feature 1]
+- [Feature 2]
+- [Feature 3]
+- [Feature 4]
+- Modular and customizable structure
+- Production-ready outputs
 
-Why not give the user the choice?Add a loader for both models and let the user choose what kind of 2nd pass to apply.
+## 🖼️ Examples
 
-This workflow will generate a high-res Qwen image, and then the image will go through a 2nd pass with the model (with LoRAs if you want to use them) of your choice.
+| Input/Prompt | Output |
+|--------------|--------|
+| ![Example 1](assets/example1.png) | ![Result 1](assets/result1.png) |
+| ![Example 2](assets/example2.png) | ![Result 2](assets/result2.png) |
 
-The image then can be sent to each one of the modules:1) Face detailer (to improve the details of faces in the image), 2) Ultimate SD Upscaler, and 3) Save the final image.
+## 📋 Requirements
 
-Warning: this workflow was developed for photorealistic images. If you just want to generate illustrations, cartoons, anime, or images like these, you don't need a second pass, as the Qwen model is already perfect by itself for these kinds of images.
+### Models Required
+- **Main Model**: [Nome modello] - [Link download Civitai/Hugging Face]
+- **VAE**: [Nome VAE] - [Link]
+- **Upscaler**: [Nome upscaler] - [Link]
+- *Optional*: [Altri modelli opzionali]
 
-This workflow was tested on Runpod with a rtx 5090 gpu, and using the standard models (Qwen bf16 and Flux Krea fp16) I had no trouble or OOM errors. If your GPU has less than 32GB it is probable that you need to use the fp8 models or the quantized GGUF models.
+### Custom Nodes
+- [Custom Node 1] - [Link al repo GitHub]
+- [Custom Node 2] - [Link]
+- [Custom Node 3] - [Link]
 
-As another alternative, you can download the "Qwen Image WAN2.2 Modular WF v1.0.json" workflow file, if you want to use Wan2.2 model for second pass in place of Flux/SDXL/Illustrious.
+### System Requirements
+- **VRAM**: Minimum [X]GB recommended
+- **ComfyUI**: Latest version recommended
+- **Python**: 3.10+
+
+## 🚀 Installation
+
+1. **Download the workflow**
+```bash
+   git clone https://github.com/Tenofas/[REPO-NAME].git
+```
+   Or download the `.json` file directly from [Releases](../../releases)
+
+2. **Install required custom nodes**
+   - Open ComfyUI Manager
+   - Search and install the custom nodes listed above
+   - Restart ComfyUI
+
+3. **Download required models**
+   - Download models from links in Requirements section
+   - Place in appropriate ComfyUI folders:
+     - Main models: `ComfyUI/models/checkpoints/`
+     - VAE: `ComfyUI/models/vae/`
+     - Upscalers: `ComfyUI/models/upscale_models/`
+
+4. **Load the workflow**
+   - Open ComfyUI
+   - Drag and drop the `.json` file into the interface
+   - Or use "Load" button and select the workflow file
+
+## 💡 Usage
+
+1. **[Step 1]** - [Descrizione]
+2. **[Step 2]** - [Descrizione]
+3. **[Step 3]** - [Descrizione]
+4. Click "Queue Prompt" to generate
+
+### Recommended Settings
+- **Steps**: [X]
+- **CFG Scale**: [X]
+- **Sampler**: [Nome sampler]
+- **Scheduler**: [Nome scheduler]
+
+## 🎨 Workflow Structure
+```
+[Breve descrizione della pipeline]
+
+Input → Base Generation → Upscaling → Face Enhancement → Post-Processing → Output
+```
+
+![Workflow Screenshot](assets/workflow_screenshot.png)
+
+## 🔧 Customization
+
+### Adjustable Parameters
+- **[Parametro 1]**: [Cosa fa e come modificarlo]
+- **[Parametro 2]**: [Cosa fa e come modificarlo]
+- **[Parametro 3]**: [Cosa fa e come modificarlo]
+
+### Tips for Best Results
+- [Tip 1]
+- [Tip 2]
+- [Tip 3]
+
+## 🐛 Troubleshooting
+
+**Problem: [Problema comune]**
+- Solution: [Soluzione]
+
+**Problem: [Altro problema]**
+- Solution: [Soluzione]
+
+**Problem: Out of memory errors**
+- Solution: Reduce batch size or image resolution
+
+## 📝 Changelog
+
+### Version [X.X] - [Date]
+- [Change 1]
+- [Change 2]
+
+### Version [X.X] - [Date]
+- Initial release
+
+## 📄 License
+
+This workflow is released under the [MIT License](LICENSE).
+
+Free to use, modify, and distribute. Attribution appreciated but not required.
+
+## 🤝 Support
+
+- **Issues**: Open an issue on this repository
+- **X (Twitter)**: [@tenofaz](https://x.com/tenofaz)
+- **Website**: [tenofas.ai](https://tenofas.ai)
+
+## ⭐ Credits
+
+Workflow developed by **Tenofas**
+
+If you find this workflow useful, consider:
+- ⭐ Starring this repository
+- 🔄 Sharing with the community
+- 🐦 Following on [X](https://x.com/tenofaz)
+
+---
+
+*Part of the [Tenofas ComfyUI Workflows](https://github.com/Tenofas) collection*
